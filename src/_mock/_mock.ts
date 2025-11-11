@@ -230,3 +230,50 @@ export const _productNames = (index: number) =>
     'Nike React Art3mis',
     'Nike React Infinity Run Flyknit A.I.R. Chaz Bear',
   ][index];
+
+
+  // ==== Promotion helpers ====
+
+// ✅ Giống quy tắc backend: "TCC-" + 6 chữ số
+// (Ở mock dùng công thức theo index để DETERMINISTIC, tránh random thay đổi sau mỗi reload)
+export const _promoCode = (index: number) => {
+  const six = (100000 + (((index + 1) * 98765) % 900000)).toString().padStart(6, '0');
+  return `TCC-${six}`;
+};
+
+// % giảm mẫu (giữ đúng dải hay dùng trong UI demo)
+export const _promoPercent = (index: number) =>
+  [20, 5, 10, 6, 15, 8, 12, 18, 7, 22, 25, 30][index % 12];
+
+// Ngày hết hạn mẫu (MM/DD/YYYY) – để ổn định dữ liệu demo
+export const _promoExpiry = (index: number) =>
+  [
+    '11/03/2026',
+    '12/26/2026',
+    '09/12/2026',
+    '05/25/2026',
+    '08/19/2026',
+    '07/14/2026',
+    '10/05/2026',
+    '01/18/2027',
+    '03/22/2027',
+    '04/09/2027',
+    '06/30/2027',
+    '09/17/2027',
+    '11/29/2027',
+    '02/15/2028',
+    '05/10/2028',
+    '07/01/2028',
+    '08/21/2028',
+    '10/30/2028',
+    '12/12/2028',
+    '03/03/2029',
+    '04/27/2029',
+    '06/09/2029',
+    '08/16/2029',
+    '10/28/2029',
+  ][index % 24];
+
+// Ảnh nền cho promotion card (tận dụng cover có sẵn)
+export const _promoImage = (index: number) =>
+  `/assets/images/cover/cover-${(index % 24) + 1}.webp`;

@@ -1,3 +1,7 @@
+import LogoutIcon from '@mui/icons-material/Logout';
+import DiscountIcon from '@mui/icons-material/Discount';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+
 import { Label } from 'src/components/label';
 import { SvgColor } from 'src/components/svg-color';
 
@@ -34,18 +38,33 @@ export const navData = [
     ),
   },
   {
-    title: 'Blog',
-    path: '/blog',
-    icon: icon('ic-blog'),
+    title: 'Promotion',
+    path: '/promotion',
+    icon: <DiscountIcon />,
   },
   {
-    title: 'Sign in',
+    title: 'Order',
+    path: '/order',
+    icon: <LocalShippingIcon />,
+  },
+  // {
+  //   title: 'Blog',
+  //   path: '/blog',
+  //   icon: icon('ic-blog'),
+  // },
+  // {
+  //   title: 'Sign in',
+  //   path: '/sign-in',
+  //   icon: icon('ic-lock'),
+  // },
+  // {
+  //   title: 'Not found',
+  //   path: '/404',
+  //   icon: icon('ic-disabled'),
+  // },
+  {
+    title: 'Logout',
     path: '/sign-in',
-    icon: icon('ic-lock'),
-  },
-  {
-    title: 'Not found',
-    path: '/404',
-    icon: icon('ic-disabled'),
+    icon: <LogoutIcon />,
   },
 ];

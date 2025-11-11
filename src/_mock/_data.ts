@@ -9,7 +9,13 @@ import {
   _postTitles,
   _description,
   _productNames,
+  _promoCode,
+  _promoPercent,
+  _promoImage,
+  _promoExpiry,
 } from './_mock';
+
+
 
 // ----------------------------------------------------------------------
 
@@ -208,3 +214,38 @@ export const _notifications = [
     isUnRead: false,
   },
 ];
+
+// ----------------------------------------------------------------------
+// Promotions mock – khớp schema backend
+// {
+//   title: string;
+//   description?: string;
+//   promotionCode: string;    // unique, "TCC-XXXXXX"
+//   discountPercent: number;  // 20 => 20%
+//   expiryDate: string;       // MM/DD/YYYY (string OK, component đã format)
+//   minOrder: number;         // default 0
+//   isLock: boolean;          // default false
+//   image: string;            // url
+//   requiredPoints: number;   // default 0
+// }
+
+export const _promotions = [...Array(12)].map((_, index) => {
+  const setIndex = index;
+
+  return {
+    id: _id(setIndex),
+    title: 'GIFT CARD', // heading nhỏ trên thẻ
+    description:
+      setIndex % 2 === 0 ? 'Any Purchase' : _description(setIndex), // mô tả ngắn
+    promotionCode: _promoCode(setIndex), // ✅ TCC-xxxxxx
+    discountPercent: _promoPercent(setIndex),
+    expiryDate: _promoExpiry(setIndex), // string MM/DD/YYYY
+    minOrder:
+      [0, 100000, 0, 200000, 50000, 0][setIndex % 6], // có/không đơn tối thiểu
+    isLock: [false, false, true, false, false, false][setIndex % 6], // vài item bị khóa
+    image: _promoImage(setIndex), // nền card
+    requiredPoints: [0, 0, 100, 0, 200, 0][setIndex % 6], // pts để đổi (nếu có)
+    // timestamps có thể thêm nếu cần: createdAt/updatedAt
+  };
+});
+

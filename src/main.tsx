@@ -1,5 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { Toaster } from 'sonner';
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router';
 
 import App from './app';
@@ -24,6 +25,9 @@ const root = createRoot(document.getElementById('root')!);
 
 root.render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <>
+      <RouterProvider router={router} />
+      <Toaster position="top-right" expand richColors />
+    </>
   </StrictMode>
 );
