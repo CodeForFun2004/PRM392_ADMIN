@@ -277,3 +277,16 @@ export const _promoExpiry = (index: number) =>
 // Ảnh nền cho promotion card (tận dụng cover có sẵn)
 export const _promoImage = (index: number) =>
   `/assets/images/cover/cover-${(index % 24) + 1}.webp`;
+
+// ==== ORDER HELPERS ====
+
+// Sinh orderNumber cố định để không random mỗi lần reload
+export const _orderNumber = (index: number) => {
+  const hex = (index + 1001).toString(16).slice(-6);
+  return `#ORD-${hex}`;
+};
+
+// Fake số điện thoại
+export const _phone = (index: number) =>
+  `09${(index * 3791).toString().padStart(8, '4').slice(-8)}`;
+

@@ -1,1 +1,1 @@
-// export * from './promotions-view';
+export * from './promotions-view';

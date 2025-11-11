@@ -13,6 +13,8 @@ import {
   _promoPercent,
   _promoImage,
   _promoExpiry,
+  _orderNumber,
+  _phone,
 } from './_mock';
 
 
@@ -249,3 +251,46 @@ export const _promotions = [...Array(12)].map((_, index) => {
   };
 });
 
+
+export const _orders = [...Array(12)].map((_, index) => {
+  const qty = (index % 3) + 1;
+  const basePrice = _price(index);
+  const toppings = [
+    { id: _id(index + 100), name: 'Thạch phô mai' },
+    { id: _id(index + 200), name: 'Kem cheese' },
+  ].slice(0, (index % 2) + 1);
+
+  const subtotal = basePrice * qty;
+  const deliveryFee = 15000;
+  const tax = Math.round(subtotal * 0.08);
+  const total = subtotal + deliveryFee + tax;
+
+  return {
+    id: _id(index),
+    userId: _id((index % 5) + 50), // 5 user demo
+    orderNumber: _orderNumber(index),
+    items: [
+      {
+        productId: _id(index),
+        name: _productNames(index),
+        size: ['S', 'M', 'L'][index % 3],
+        toppings,
+        quantity: qty,
+        price: basePrice,
+      },
+    ],
+    subtotal,
+    deliveryFee,
+    tax,
+    total,
+    deliveryAddress: `Số ${index + 12}, Đường Tôn Đức Thắng, Đà Nẵng`,
+    phone: _phone(index),
+    paymentMethod: index % 2 === 0 ? 'cod' : 'vietqr',
+    qrCodeUrl:
+      index % 2 === 0 ? '' : 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=payme',
+    deliveryTime: '25-35 phút',
+    status: ['pending', 'processing', 'preparing', 'delivering', 'completed'][index % 5],
+    cancelReason: index % 7 === 0 ? 'Khách yêu cầu huỷ' : null,
+    createdAt: new Date(Date.now() - index * 86400000),
+  };
+});
