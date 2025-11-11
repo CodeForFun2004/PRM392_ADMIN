@@ -1,21 +1,23 @@
 import {
-  _id,
-  _price,
-  _times,
-  _company,
   _boolean,
-  _fullName,
-  _taskNames,
-  _postTitles,
+  _company,
   _description,
-  _productNames,
-  _promoCode,
-  _promoPercent,
-  _promoImage,
-  _promoExpiry,
+  _fullName,
+  _id,
+  _oid,
   _orderNumber,
   _phone,
+  _postTitles,
+  _price,
+  _productNames,
+  _promoCode,
+  _promoExpiry,
+  _promoImage,
+  _promoPercent,
+  _taskNames,
+  _times,
 } from './_mock';
+
 
 
 
@@ -292,5 +294,216 @@ export const _orders = [...Array(12)].map((_, index) => {
     status: ['pending', 'processing', 'preparing', 'delivering', 'completed'][index % 5],
     cancelReason: index % 7 === 0 ? 'Khách yêu cầu huỷ' : null,
     createdAt: new Date(Date.now() - index * 86400000),
+  };
+});
+
+
+// =====================
+// CATEGORY (backend)
+// =====================
+export type ICategory = {
+  _id: string;                // ObjectId mock
+  category: string;
+  icon: string;
+  description: string;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+export const _categories: ICategory[] = [
+  {
+    _id: _oid(1000),
+    category: 'Coffee',
+    icon: '/assets/icons/categories/ic-coffee.svg',
+    description: 'Cà phê rang xay, espresso, latte, cappuccino...',
+    createdAt: '2024-04-09T08:00:00.000Z',
+    updatedAt: '2024-06-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(1001),
+    category: 'Milk Tea',
+    icon: '/assets/icons/categories/ic-milktea.svg',
+    description: 'Trà sữa trân châu, macchiato, kem cheese…',
+    createdAt: '2024-04-09T08:00:00.000Z',
+    updatedAt: '2024-06-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(1002),
+    category: 'Fruit Tea',
+    icon: '/assets/icons/categories/ic-fruit-tea.svg',
+    description: 'Trà trái cây tươi mát cho ngày năng động.',
+    createdAt: '2024-04-09T08:00:00.000Z',
+    updatedAt: '2024-06-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(1003),
+    category: 'Smoothies',
+    icon: '/assets/icons/categories/ic-smoothie.svg',
+    description: 'Sinh tố hoa quả, yogurt, detox.',
+    createdAt: '2024-04-09T08:00:00.000Z',
+    updatedAt: '2024-06-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(1004),
+    category: 'Bakery',
+    icon: '/assets/icons/categories/ic-bakery.svg',
+    description: 'Bánh ngọt ăn kèm đồ uống.',
+    createdAt: '2024-04-09T08:00:00.000Z',
+    updatedAt: '2024-06-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(1005),
+    category: 'New',
+    icon: '/assets/icons/categories/ic-new.svg',
+    description: 'Danh mục các món mới ra mắt.',
+    createdAt: '2024-04-09T08:00:00.000Z',
+    updatedAt: '2024-06-01T08:00:00.000Z',
+  },
+];
+
+// =====================
+// PRODUCT (backend)
+// =====================
+export type IProductBE = {
+  _id: string;                          // ObjectId mock
+  name: string;
+  description?: string;
+  basePrice: number;
+  image: string;
+  status: 'new' | 'old';
+  rating: number;                       // 0..5
+  sizeOptions: string[];                // ObjectId[]
+  toppingOptions: string[];             // ObjectId[]
+  storeId?: string;                     // ObjectId
+  categoryId: string[];                 // ObjectId[]
+  isBanned?: boolean;
+};
+
+// =====================
+// SIZE (backend)
+// =====================
+export type ISize = {
+  _id: string;
+  size: 'S' | 'M' | 'L';
+  name: string;
+  multiplier: number;
+  volume: string;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+export const _sizes: ISize[] = [
+  {
+    _id: _oid(2000),
+    size: 'S',
+    name: 'Small',
+    multiplier: 1,
+    volume: '350ml',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(2001),
+    size: 'M',
+    name: 'Medium',
+    multiplier: 1.2,
+    volume: '450ml',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(2002),
+    size: 'L',
+    name: 'Large',
+    multiplier: 1.5,
+    volume: '550ml',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+];
+
+// =====================
+// TOPPING (backend)
+// =====================
+export type ITopping = {
+  _id: string;
+  name: string;
+  price: number;
+  icon: string;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+export const _toppings: ITopping[] = [
+  {
+    _id: _oid(3000),
+    name: 'Pearl',
+    price: 7000,
+    icon: '/assets/icons/toppings/ic-pearl.svg',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(3001),
+    name: 'Grass Jelly',
+    price: 8000,
+    icon: '/assets/icons/toppings/ic-jelly.svg',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(3002),
+    name: 'Cheese Foam',
+    price: 12000,
+    icon: '/assets/icons/toppings/ic-cheese.svg',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(3003),
+    name: 'Flan',
+    price: 15000,
+    icon: '/assets/icons/toppings/ic-flan.svg',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+];
+
+// Store mock id
+const STORE_ID: string = _oid(9000);
+
+// Lấy ids từ mock, có kiểu để tránh implicit any
+const SIZE_IDS: string[] = _sizes.map((s: ISize) => s._id);
+const TOPPING_IDS: string[] = _toppings.map((t: ITopping) => t._id);
+
+
+
+export const _productsBE: IProductBE[] = [...Array(12)].map((_, index) => {
+  const setIndex = index + 1;
+  // gán category theo nhóm + luôn có thêm cate 'New' nếu status = 'new'
+  const baseCate =
+    (setIndex % 4 === 1 && _categories[0]._id) || // Coffee
+    (setIndex % 4 === 2 && _categories[1]._id) || // Milk Tea
+    (setIndex % 4 === 3 && _categories[2]._id) || // Fruit Tea
+    _categories[3]._id;                            // Smoothies
+
+  const status: 'new' | 'old' = setIndex % 3 === 0 ? 'new' : 'old';
+
+  const categoryId =
+    status === 'new' ? [baseCate, _categories[5]._id] : [baseCate];
+
+  return {
+    _id: _oid(5000 + index),
+    name: _productNames(index),
+    description: _description(index),
+    basePrice: Math.round((_price(index) || 30) * 1000),
+    image: `/assets/images/product/product-${setIndex}.webp`,
+    status,
+    rating: Number((4 + ((index % 10) / 10)).toFixed(1)), // ~4.0..4.9
+    sizeOptions: SIZE_IDS.slice(0, (index % 3) + 1),
+    toppingOptions: TOPPING_IDS.slice(0, (index % 4) + 1),
+    storeId: STORE_ID,
+    categoryId,
+    isBanned: (index % 11 === 0) ? true : false,
   };
 });
