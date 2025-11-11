@@ -29,6 +29,7 @@ export const _times = (index: number) =>
     '08/09/2024',
   ][index];
 
+  
 export const _fullName = (index: number) =>
   [
     'Billy Stoltenberg',
@@ -289,4 +290,99 @@ export const _orderNumber = (index: number) => {
 // Fake số điện thoại
 export const _phone = (index: number) =>
   `09${(index * 3791).toString().padStart(8, '4').slice(-8)}`;
+
+// 24-hex như MongoDB ObjectId mock
+export const _oid = (index: number) =>
+  (index + 1).toString(16).padStart(24, '0');
+
+// =====================
+// SIZE (backend)
+// =====================
+export type ISize = {
+  _id: string;
+  size: 'S' | 'M' | 'L';
+  name: string;
+  multiplier: number;
+  volume: string;         // ví dụ 350ml, 500ml...
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+export const _sizes: ISize[] = [
+  {
+    _id: _oid(2000),
+    size: 'S',
+    name: 'Small',
+    multiplier: 1,
+    volume: '350ml',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(2001),
+    size: 'M',
+    name: 'Medium',
+    multiplier: 1.2,
+    volume: '450ml',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(2002),
+    size: 'L',
+    name: 'Large',
+    multiplier: 1.5,
+    volume: '550ml',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+];
+
+// =====================
+// TOPPING (backend)
+// =====================
+export type ITopping = {
+  _id: string;
+  name: string;
+  price: number;
+  icon: string;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+export const _toppings: ITopping[] = [
+  {
+    _id: _oid(3000),
+    name: 'Pearl',
+    price: 7000,
+    icon: '/assets/icons/toppings/ic-pearl.svg',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(3001),
+    name: 'Grass Jelly',
+    price: 8000,
+    icon: '/assets/icons/toppings/ic-jelly.svg',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(3002),
+    name: 'Cheese Foam',
+    price: 12000,
+    icon: '/assets/icons/toppings/ic-cheese.svg',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+  {
+    _id: _oid(3003),
+    name: 'Flan',
+    price: 15000,
+    icon: '/assets/icons/toppings/ic-flan.svg',
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-02-01T08:00:00.000Z',
+  },
+];
+
 
