@@ -1,6 +1,8 @@
+import type { PayloadAction } from '@reduxjs/toolkit';
 import type { IPromotionItem } from 'src/sections/promotion/promotion-item';
 
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+
 import { _promotions } from 'src/_mock';
 
 // Initialize state from mock data
@@ -43,4 +45,3 @@ const promotionSlice = createSlice({
 
 export const { lockPromotion, unlockPromotion, updatePromotion, deletePromotion, addPromotion } = promotionSlice.actions;
 export default promotionSlice.reducer;
-

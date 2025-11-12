@@ -1,4 +1,5 @@
-import { useMemo, useEffect, useCallback, useState } from 'react';
+import { toast } from 'sonner';
+import { useMemo, useState, useEffect, useCallback } from 'react';
 
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -8,8 +9,6 @@ import Typography from '@mui/material/Typography';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-
-import { toast } from 'sonner';
 
 import { useAppDispatch } from 'src/store/hooks';
 import { addPromotion } from 'src/store/slices/promotionSlice';

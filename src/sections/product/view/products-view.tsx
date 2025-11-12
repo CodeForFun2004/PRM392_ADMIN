@@ -1,55 +1,56 @@
 import type { ChangeEvent, SyntheticEvent } from 'react';
-import { useState, useMemo, useCallback, useEffect } from 'react';
-
-import Avatar from '@mui/material/Avatar';
-import Autocomplete from '@mui/material/Autocomplete';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
-import Chip from '@mui/material/Chip';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import Divider from '@mui/material/Divider';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Grid from '@mui/material/Grid';
-import IconButton from '@mui/material/IconButton';
-import InputAdornment from '@mui/material/InputAdornment';
-import MenuItem from '@mui/material/MenuItem';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import Pagination from '@mui/material/Pagination';
-import Rating from '@mui/material/Rating';
-import Stack from '@mui/material/Stack';
-import Switch from '@mui/material/Switch';
-import Tab from '@mui/material/Tab';
-import Tabs from '@mui/material/Tabs';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
-
 import type { SelectChangeEvent } from '@mui/material/Select';
 
-import { Iconify } from 'src/components/iconify';
+import { toast } from 'sonner';
+import { useMemo, useState, useEffect, useCallback } from 'react';
+
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import Card from '@mui/material/Card';
+import Chip from '@mui/material/Chip';
+import Grid from '@mui/material/Grid';
+import Tabs from '@mui/material/Tabs';
+import Stack from '@mui/material/Stack';
+import Table from '@mui/material/Table';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import Rating from '@mui/material/Rating';
+import Switch from '@mui/material/Switch';
+import Divider from '@mui/material/Divider';
+import MenuItem from '@mui/material/MenuItem';
+import TableRow from '@mui/material/TableRow';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TextField from '@mui/material/TextField';
+import CardHeader from '@mui/material/CardHeader';
+import IconButton from '@mui/material/IconButton';
+import Pagination from '@mui/material/Pagination';
+import Typography from '@mui/material/Typography';
+import CardContent from '@mui/material/CardContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import Autocomplete from '@mui/material/Autocomplete';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputAdornment from '@mui/material/InputAdornment';
+import TableContainer from '@mui/material/TableContainer';
+import FormControlLabel from '@mui/material/FormControlLabel';
+
 import { DashboardContent } from 'src/layouts/dashboard';
 import {
-  _categories,
-  _productsBE,
   _sizes,
   _toppings,
+  type ISize,
+  _categories,
+  _productsBE,
+  type ITopping,
   type ICategory,
   type IProductBE,
-  type ISize,
-  type ITopping,
 } from 'src/_mock/_data';
-import { toast } from 'sonner';
+
+import { Iconify } from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 

@@ -1,22 +1,22 @@
 // src/sections/order/view/orders-view.tsx
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo, useState, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
-import Pagination from '@mui/material/Pagination';
 import Table from '@mui/material/Table';
+import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import Pagination from '@mui/material/Pagination';
 import Typography from '@mui/material/Typography';
+import TableContainer from '@mui/material/TableContainer';
 
 import { _orders } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
 
-import OrderItem, { type IOrderItem } from '../order-item';
-import OrderStatistics from '../order-statistics';
 import OrderDetail from '../order-detail';
+import OrderStatistics from '../order-statistics';
+import OrderItem, { type IOrderItem } from '../order-item';
 import { StatusFilter, type OrderStatus, type StatusFilterValue } from '../order-status';
 
 const PAGE_SIZE = 8;

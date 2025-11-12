@@ -1,23 +1,24 @@
 // src/sections/promotion/view/promotions-view.tsx
-import { useState, useMemo, useCallback } from 'react';
+import { useMemo, useState, useCallback } from 'react';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { DashboardContent } from 'src/layouts/dashboard';
+
 import { useAppSelector } from 'src/store/hooks';
+import { DashboardContent } from 'src/layouts/dashboard';
 
 import { Iconify } from 'src/components/iconify';
 
 import AddPromoModal from '../add-promo-modal';
-import PromotionItem, { type IPromotionItem } from '../promotion-item';
+import EditPromoModal from '../edit-promo-modal';
 import PromotionSearch from '../promotion-search';
+import PromotionItem, { type IPromotionItem } from '../promotion-item';
 import PromotionSort, { type PromotionSortOption } from '../promotion-sort';
 import PromotionFilters, { type PromotionLockFilter } from '../promotion-filters';
-import EditPromoModal from '../edit-promo-modal';
 
 export function PromotionsView() {
   const promotions = useAppSelector((state) => state.promotions);

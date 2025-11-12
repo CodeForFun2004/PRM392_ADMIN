@@ -1,27 +1,28 @@
 // src/sections/order/order-detail.tsx
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import Stepper from '@mui/material/Stepper';
+import Stack from '@mui/material/Stack';
 import Table from '@mui/material/Table';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import Divider from '@mui/material/Divider';
+import Stepper from '@mui/material/Stepper';
+import TableRow from '@mui/material/TableRow';
+import StepLabel from '@mui/material/StepLabel';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import TableContainer from '@mui/material/TableContainer';
+
+import { STATUS_LABEL, STATUS_SEQUENCE, type OrderStatus } from './order-status';
 
 import type { IOrderItem } from './order-item';
-import { STATUS_LABEL, STATUS_SEQUENCE, type OrderStatus } from './order-status';
 
 type Props = {
   open: boolean;

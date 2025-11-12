@@ -1,6 +1,6 @@
+import { Toaster } from 'sonner';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Toaster } from 'sonner';
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router';
 
 import App from './app';
